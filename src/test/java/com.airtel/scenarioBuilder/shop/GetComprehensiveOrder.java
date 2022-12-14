@@ -1,10 +1,7 @@
 package com.airtel.scenarioBuilder.shop;
 
 import com.airtel.core.BaseGatling;
-import com.airtel.global.APIEndpoints;
-import com.airtel.global.ContentType;
-import com.airtel.global.LocalConfig;
-import com.airtel.global.MethodType;
+import com.airtel.global.*;
 import com.airtel.scenarioBuilder.ScenarioInterface;
 import io.gatling.javaapi.core.PopulationBuilder;
 import io.gatling.javaapi.core.ScenarioBuilder;
@@ -41,7 +38,7 @@ public class GetComprehensiveOrder extends BaseGatling implements ScenarioInterf
     public void execute() {
         this.scenarioBuilder=executeScenario();
         this.httpProtocolBuilder=executeHttpProtocol();
-        this.populationBuilder=executePopulationBuilder(this.scenarioBuilder,10,20);
+        this.populationBuilder=executePopulationBuilder(this.scenarioBuilder, PerfParams.rampUpPeriod,PerfParams.duration);
     }
 
 
