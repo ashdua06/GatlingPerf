@@ -1,4 +1,6 @@
 package com.airtel.core;
+
+
 import com.airtel.global.ContentType;
 import com.airtel.global.MethodType;
 import io.gatling.javaapi.core.PopulationBuilder;
@@ -7,28 +9,32 @@ import io.gatling.javaapi.core.Simulation;
 import io.gatling.javaapi.http.Http;
 import io.gatling.javaapi.http.HttpProtocolBuilder;
 import io.gatling.javaapi.http.HttpRequestActionBuilder;
+
 import java.util.Map;
-import static io.gatling.javaapi.core.CoreDsl.*;
+
 import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
-public class BaseGatling  extends Simulation{
+import static io.gatling.javaapi.core.CoreDsl.*;
+import  io.gatling.javaapi.core.internal.*;
 
-    private  HttpProtocolBuilder httpProtocol= http;
+public class BaseGatling  extends Simulation {
+
+    private HttpProtocolBuilder httpProtocol= http;
     private MethodType method;
-    private   ScenarioBuilder scenarioBuilder;
+    private ScenarioBuilder scenarioBuilder;
 
-    private   Http httpDsl;
+    private Http httpDsl;
 
-    private   HttpRequestActionBuilder httpRequestActionBuilder;
+    private HttpRequestActionBuilder httpRequestActionBuilder;
 
-    public  HttpProtocolBuilder getHttpProtocol() {
-        return httpProtocol;
-    }
-
-    public  ScenarioBuilder getScenBuilder() {
-        return scenarioBuilder;
-    }
+//    public  HttpProtocolBuilder getHttpProtocol() {
+//        return httpProtocol;
+//    }
+//
+//    public  ScenarioBuilder getScenBuilder() {
+//        return scenarioBuilder;
+//    }
 
     public void setScenarioDescription(String scenario) {
         scenarioBuilder= scenario(scenario);
@@ -41,7 +47,7 @@ public class BaseGatling  extends Simulation{
         return httpProtocol;
     }
 
-    public PopulationBuilder executePopulationBuilder(ScenarioBuilder scn,int rampUsers,int duration){
+    public PopulationBuilder executePopulationBuilder(ScenarioBuilder scn, int rampUsers, int duration){
         return scn.injectOpen(rampUsers(rampUsers).during(duration));
     }
 
