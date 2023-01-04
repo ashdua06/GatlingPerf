@@ -1,4 +1,4 @@
-FROM core.harbor.cloudapps.okdcloud.india.airtel.itm/library/openjdk:8-jdk-alpine
+# FROM core.harbor.cloudapps.okdcloud.india.airtel.itm/library/openjdk:8-jdk-alpine
 FROM maven:3.5-jdk-8-alpine
 WORKDIR /AIRTEL_PERF
 COPY src /AIRTEL_PERF/src
