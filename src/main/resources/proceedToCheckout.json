@@ -1,0 +1,29 @@
+{
+  "channel": "DIGITAL_STORE",
+  "loggedInSi": "9654335872",
+  "orderMeta": {},
+  "orderPaymentDetails": {
+    "eligiblePaymentModes": [
+      {
+        "modeId": "PAYTM"
+      }
+    ],
+    "orderPaymentAmount": 1,
+    "skipPayment": false,
+    "addToBill": false
+  },
+  "serviceOrderItems": [
+    {
+      "skuGroupId": "APOLLOCIRCLE_2M",
+      "serviceId": "APOLLOCIRCLE_2M",
+      "provisionSi": "9654335872",
+      "paymentDetails": {
+        "paymentAmount": 99
+      },
+      "serviceOrderMeta": {
+        "isBundle": false,
+        "bundle": false
+      }
+    }
+  ]
+}
