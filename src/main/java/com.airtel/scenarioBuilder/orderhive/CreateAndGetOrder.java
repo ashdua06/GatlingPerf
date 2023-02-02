@@ -31,15 +31,15 @@ public class CreateAndGetOrder extends BaseGatling implements ScenarioInterface 
     public void executeApi() {
         //Create order Api
         proceedToCheckout=new ProceedToCheckout();
-        proceedToCheckout.saveResponseField("$.body.orderId","orderId");
-        proceedToCheckout.saveResponse("proceedToCheckoutResponse");
+        proceedToCheckout.saveElementInResponseBody("$.body.orderId","orderId");
+        proceedToCheckout.saveResponseBody("proceedToCheckoutResponse");
         proceedToCheckout.execute();
 
         //Get Order Api
         getComprohensiveOrderDetails=new GetComprohensiveOrderDetails();
         getComprohensiveOrderDetails.setQueryParam("orderId","#{orderId}");
-        getComprohensiveOrderDetails.saveResponse("getComprohensiveOrderResponse");
-        getComprohensiveOrderDetails.validateResponseField("$.body.orderId","orderId");
+        getComprohensiveOrderDetails.saveResponseBody("getComprohensiveOrderResponse");
+        getComprohensiveOrderDetails.validateElementInResponse("$.body.orderId","orderId");
         getComprohensiveOrderDetails.execute();
 
     }

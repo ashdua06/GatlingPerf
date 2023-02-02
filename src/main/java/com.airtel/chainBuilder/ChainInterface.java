@@ -11,11 +11,5 @@ public interface ChainInterface{
     HttpRequestActionBuilder getHttpRequestActionBuilder();
     void execute();
 
-    void saveResponseField(String jsonPath,String variableName);
-
-    void saveResponse(String variableName);
-
-    void validateResponseField(String actualFieldJsonPath,String expectedVariableName);
-    void validateResponseFieldValue(String actualFieldJsonPath,String expectedVariableValue);
 
 }

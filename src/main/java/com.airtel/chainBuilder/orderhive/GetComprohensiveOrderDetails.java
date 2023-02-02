@@ -27,23 +27,5 @@ public class GetComprohensiveOrderDetails extends BaseGatling implements ChainIn
         this.httpRequestActionBuilder=executeHttpActionBuilder();
     }
 
-    @Override
-    public void saveResponseField(String jsonPath, String variableName) {
 
-    }
-
-    @Override
-    public void saveResponse(String variableName) {
-        saveResponseBody(variableName);
-    }
-
-    @Override
-    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
-        validateElementInResponse(actualFieldJsonPath,expectedVariableName);
-    }
-
-    @Override
-    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
-        validateElementValueInResponse(actualFieldJsonPath,expectedVariableValue);
-    }
 }
