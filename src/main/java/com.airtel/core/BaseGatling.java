@@ -159,6 +159,7 @@ public class BaseGatling  extends Simulation {
         httpRequestActionBuilder=httpRequestActionBuilder.check(jsonPath(actualElementJsonPath).is(session -> session.getString(expectedElementName)));
     }
 
+
     public void validateElementValueInResponse(String actualElementJsonPath,String expectedElementValue){
         httpRequestActionBuilder=httpRequestActionBuilder.check(jsonPath(actualElementJsonPath).is(expectedElementValue));
     }
