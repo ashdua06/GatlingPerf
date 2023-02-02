@@ -2,6 +2,7 @@ package com.airtel.scenarioBuilder.orderhive;
 
 import com.airtel.chainBuilder.orderhive.GetComprohensiveOrderDetails;
 import com.airtel.chainBuilder.orderhive.ProceedToCheckout;
+import com.airtel.commonUtils.RandomUtils;
 import com.airtel.core.BaseGatling;
 import com.airtel.global.*;
 import com.airtel.scenarioBuilder.ScenarioInterface;
@@ -17,6 +18,7 @@ public class CreateAndGetOrder extends BaseGatling implements ScenarioInterface 
 
     public CreateAndGetOrder(){
         setScenarioDescription("Create and get order details");
+        setRandomFeeder("loggedInSi", RandomUtils.getInstance().generateNumberString(10));
         pause(1);
     }
 
@@ -29,10 +31,15 @@ public class CreateAndGetOrder extends BaseGatling implements ScenarioInterface 
     public void executeApi() {
         //Create order Api
         proceedToCheckout=new ProceedToCheckout();
+        proceedToCheckout.saveResponseField("$.body.orderId","orderId");
+        proceedToCheckout.saveResponse("proceedToCheckoutResponse");
         proceedToCheckout.execute();
 
         //Get Order Api
         getComprohensiveOrderDetails=new GetComprohensiveOrderDetails();
+        getComprohensiveOrderDetails.setQueryParam("orderId","#{orderId}");
+        getComprohensiveOrderDetails.saveResponse("getComprohensiveOrderResponse");
+        getComprohensiveOrderDetails.validateResponseField("$.body.orderId","orderId");
         getComprohensiveOrderDetails.execute();
 
     }

@@ -66,6 +66,16 @@
       <artifactId>gatling-commons</artifactId>
       <version>${gatling.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.airtel.qacoe</groupId>
+      <artifactId>automatair-propertyFile</artifactId>
+      <version>0.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.airtel.qacoe</groupId>
+      <artifactId>automatair-common</artifactId>
+      <version>0.0.2</version>
+    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>org.scala-lang</groupId>-->
 <!--      <artifactId>scala-library</artifactId>-->
@@ -146,6 +156,21 @@
         <version>${gatling-maven-plugin.version}</version>
         <configuration>
           <runMultipleSimulations>true</runMultipleSimulations>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>Results</directory>
+              <includes>
+                <include>**/*</include>
+              </includes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
         </configuration>
       </plugin>
     </plugins>

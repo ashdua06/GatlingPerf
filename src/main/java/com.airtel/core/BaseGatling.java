@@ -14,13 +14,19 @@ import io.gatling.javaapi.http.HttpProtocolBuilder;
 import io.gatling.javaapi.http.HttpRequestActionBuilder;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
 import static io.gatling.javaapi.core.CoreDsl.*;
 import  io.gatling.javaapi.core.internal.*;
+
+import javax.swing.text.html.HTMLDocument;
 
 public class BaseGatling  extends Simulation {
 
@@ -157,6 +163,16 @@ public class BaseGatling  extends Simulation {
 
     public void validateElementInResponse(String actualElementJsonPath,String expectedElementName){
         httpRequestActionBuilder=httpRequestActionBuilder.check(jsonPath(actualElementJsonPath).is(session -> session.getString(expectedElementName)));
+    }
+
+
+    public void setRandomFeeder(String variableName,String variableValue){
+        Iterator<Map<String, Object>> feeder =
+                Stream.generate((Supplier<Map<String, Object>>) () -> {
+                            return Collections.singletonMap(variableName, variableValue);
+                        }
+                ).iterator();
+        scenarioBuilder=scenarioBuilder.feed(feeder);
     }
 
 

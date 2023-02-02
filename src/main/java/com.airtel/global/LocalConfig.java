@@ -1,6 +1,7 @@
 package com.airtel.global;
 
-import com.airtel.utils.PropertyUtils;
+
+import com.airtel.readWriteUtils.PropertyUtils;
 
 public class LocalConfig {
     public static final String ORDERHIVE_IP_PORT;
@@ -8,7 +9,7 @@ public class LocalConfig {
 
     static {
         try {
-            PropertyUtils.getInstance().load("config.properties");
+            PropertyUtils.getInstance().loadProperties("config.properties");
             ORDERHIVE_IP_PORT=System.getProperty("ORDERHIVE_IP_PORT", PropertyUtils.getInstance().getValue("ORDERHIVE_IP_PORT"));
             TEMPLATE_IP_PORT=System.getProperty("TEMPLATE_IP_PORT", PropertyUtils.getInstance().getValue("TEMPLATE_IP_PORT"));
         } catch (Throwable t) {
