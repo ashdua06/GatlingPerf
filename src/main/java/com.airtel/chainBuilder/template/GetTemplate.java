@@ -6,15 +6,13 @@ import com.airtel.global.APIEndpoints;
 import com.airtel.global.ContentType;
 import com.airtel.global.LocalConfig;
 import com.airtel.global.MethodType;
-import io.gatling.core.action.builder.FeedBuilder;
-import io.gatling.core.config.GatlingConfiguration;
 import io.gatling.javaapi.http.HttpRequestActionBuilder;
 
 
 
 public class GetTemplate extends BaseGatling implements ChainInterface {
     private HttpRequestActionBuilder httpRequestActionBuilder;
-    //"{ \"username\": \"${username}\" }"))
+
 
 
     public GetTemplate(){
@@ -22,11 +20,7 @@ public class GetTemplate extends BaseGatling implements ChainInterface {
         setMethod(MethodType.GET,  LocalConfig.TEMPLATE_IP_PORT+ APIEndpoints.Template.GET_TEMPLATE);
         setContentType(ContentType.JSON);
         setHeader("Authorization","Basic c2hvcC11c2VyOnNob3BAdXNlcg==");
-        setQueryParam("journeyName","#{journeyName}");
         checkStatus(200);
-        saveElementInResponseBody("$.body.journeyName","actualJourneyName");
-        validateElementInResponse("$.body.journeyName","journeyName");
-       // validateElementValueInResponse("$.body.journeyName","SIM_ACQUISITION_AUTO_TC6");
     }
     @Override
     public HttpRequestActionBuilder getHttpRequestActionBuilder() {
@@ -36,5 +30,25 @@ public class GetTemplate extends BaseGatling implements ChainInterface {
     @Override
     public void execute() {
         this.httpRequestActionBuilder=executeHttpActionBuilder();
+    }
+
+    @Override
+    public void saveResponseField(String jsonPath, String variableName) {
+
+    }
+
+    @Override
+    public void saveResponse(String variableName) {
+
+    }
+
+    @Override
+    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
+
+    }
+
+    @Override
+    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
+
     }
 }

@@ -11,7 +11,7 @@ import io.gatling.javaapi.http.HttpRequestActionBuilder;
 public class ProceedToCheckout extends BaseGatling implements ChainInterface {
 
     private HttpRequestActionBuilder httpRequestActionBuilder;
-    public static final String DEFAULT_PROCEEDTOCHECKOUT_REQUEST="{\"channel\":\"DIGITAL_STORE\",\"loggedInSi\":\"9654335872\",\"orderMeta\":{},\"orderPaymentDetails\":{\"eligiblePaymentModes\":[{\"modeId\":\"PAYTM\"}],\"orderPaymentAmount\":1,\"skipPayment\":false,\"addToBill\":false},\"serviceOrderItems\":[{\"skuGroupId\":\"APOLLOCIRCLE_2M\",\"serviceId\":\"APOLLOCIRCLE_2M\",\"provisionSi\":\"9654335872\",\"paymentDetails\":{\"paymentAmount\":99},\"serviceOrderMeta\":{\"isBundle\":false,\"bundle\":false}}]}";
+    public static final String DEFAULT_PROCEEDTOCHECKOUT_REQUEST="{\"channel\":\"DIGITAL_STORE\",\"loggedInSi\":\"#{loggedInSi}\",\"orderMeta\":{},\"orderPaymentDetails\":{\"eligiblePaymentModes\":[{\"modeId\":\"PAYTM\"}],\"orderPaymentAmount\":1,\"skipPayment\":false,\"addToBill\":false},\"serviceOrderItems\":[{\"skuGroupId\":\"APOLLOCIRCLE_2M\",\"serviceId\":\"APOLLOCIRCLE_2M\",\"provisionSi\":\"9654335872\",\"paymentDetails\":{\"paymentAmount\":99},\"serviceOrderMeta\":{\"isBundle\":false,\"bundle\":false}}]}";
     public ProceedToCheckout(){
         setHttpReqDescription("Proceed to checkout");
         setMethod(MethodType.POST, LocalConfig.ORDERHIVE_IP_PORT+APIEndpoints.OrderHive.PROCEED_TO_CHECKOUT);
@@ -19,8 +19,26 @@ public class ProceedToCheckout extends BaseGatling implements ChainInterface {
         setContentType(ContentType.JSON);
         setBody(DEFAULT_PROCEEDTOCHECKOUT_REQUEST);
         checkStatus(200);
-        saveResponseBody("proceedToCheckoutResponse");
-        saveElementInResponseBody("$.body.orderId","orderId");
+
+    }
+
+
+    public void saveResponseField(String jsonPath,String variableName){
+        saveElementInResponseBody(jsonPath,variableName);
+    }
+
+    public void saveResponse(String variableName) {
+        saveResponseBody(variableName);
+    }
+
+    @Override
+    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
+
+    }
+
+    @Override
+    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
+
     }
 
     public HttpRequestActionBuilder getHttpRequestActionBuilder(){

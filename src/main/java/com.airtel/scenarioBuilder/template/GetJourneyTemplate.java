@@ -31,6 +31,9 @@ public class GetJourneyTemplate extends BaseGatling implements ScenarioInterface
     public void executeApi() {
         //Get Template API
         getTemplate=new GetTemplate();
+        getTemplate.setQueryParam("journeyName","#{journeyName}");
+        getTemplate.saveElementInResponseBody("$.body.journeyName","actualJourneyName");
+        getTemplate.validateElementInResponse("$.body.journeyName","journeyName");
         getTemplate.execute();
     }
 

@@ -15,10 +15,8 @@ public class GetComprohensiveOrderDetails extends BaseGatling implements ChainIn
         setHttpReqDescription("Get Comprehensive order details");
         setMethod(MethodType.GET,  LocalConfig.ORDERHIVE_IP_PORT+APIEndpoints.OrderHive.COMPROHENSIVE_ORDER_DETAILS);
         setContentType(ContentType.JSON);
-        setQueryParam("orderId","#{orderId}");
         checkStatus(200);
-        saveResponseBody("getComprohensiveOrderResponse");
-        validateElementInResponse("$.body.orderId","orderId");
+
     }
 
     public HttpRequestActionBuilder getHttpRequestActionBuilder(){
@@ -27,5 +25,25 @@ public class GetComprohensiveOrderDetails extends BaseGatling implements ChainIn
 
     public void execute(){
         this.httpRequestActionBuilder=executeHttpActionBuilder();
+    }
+
+    @Override
+    public void saveResponseField(String jsonPath, String variableName) {
+
+    }
+
+    @Override
+    public void saveResponse(String variableName) {
+        saveResponseBody(variableName);
+    }
+
+    @Override
+    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
+        validateElementInResponse(actualFieldJsonPath,expectedVariableName);
+    }
+
+    @Override
+    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
+        validateElementValueInResponse(actualFieldJsonPath,expectedVariableValue);
     }
 }
