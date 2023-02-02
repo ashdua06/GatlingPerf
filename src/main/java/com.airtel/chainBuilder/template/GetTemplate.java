@@ -32,23 +32,5 @@ public class GetTemplate extends BaseGatling implements ChainInterface {
         this.httpRequestActionBuilder=executeHttpActionBuilder();
     }
 
-    @Override
-    public void saveResponseField(String jsonPath, String variableName) {
 
-    }
-
-    @Override
-    public void saveResponse(String variableName) {
-
-    }
-
-    @Override
-    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
-
-    }
-
-    @Override
-    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
-
-    }
 }

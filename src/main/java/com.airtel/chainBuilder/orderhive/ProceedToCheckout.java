@@ -23,24 +23,6 @@ public class ProceedToCheckout extends BaseGatling implements ChainInterface {
     }
 
 
-    public void saveResponseField(String jsonPath,String variableName){
-        saveElementInResponseBody(jsonPath,variableName);
-    }
-
-    public void saveResponse(String variableName) {
-        saveResponseBody(variableName);
-    }
-
-    @Override
-    public void validateResponseField(String actualFieldJsonPath, String expectedVariableName) {
-
-    }
-
-    @Override
-    public void validateResponseFieldValue(String actualFieldJsonPath, String expectedVariableValue) {
-
-    }
-
     public HttpRequestActionBuilder getHttpRequestActionBuilder(){
         return this.httpRequestActionBuilder;
     }
