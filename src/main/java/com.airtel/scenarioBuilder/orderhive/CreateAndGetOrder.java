@@ -7,7 +7,7 @@ import com.airtel.global.*;
 import com.airtel.scenarioBuilder.ScenarioInterface;
 import io.gatling.javaapi.core.PopulationBuilder;
 import io.gatling.javaapi.core.ScenarioBuilder;
-import io.gatling.javaapi.http.HttpProtocolBuilder;
+
 public class CreateAndGetOrder extends BaseGatling implements ScenarioInterface {
     private ScenarioBuilder scenarioBuilder;
     private PopulationBuilder populationBuilder;
