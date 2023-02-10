@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.airtel.qacoe</groupId>
   <artifactId>perfair</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -66,60 +66,6 @@
       <artifactId>gatling-commons</artifactId>
       <version>${gatling.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.airtel.qacoe</groupId>
-      <artifactId>automatair-propertyFile</artifactId>
-      <version>0.0.2</version>
-    </dependency>
-    <dependency>
-      <groupId>com.airtel.qacoe</groupId>
-      <artifactId>automatair-common</artifactId>
-      <version>0.0.2</version>
-    </dependency>
-<!--    <dependency>-->
-<!--      <groupId>org.scala-lang</groupId>-->
-<!--      <artifactId>scala-library</artifactId>-->
-<!--      <version>2.13.10</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>io.gatling</groupId>-->
-<!--      <artifactId>gatling-core-java</artifactId>-->
-<!--      <version>3.8.4</version>-->
-<!--    </dependency>-->
-    <!--<dependency>
-      <groupId>io.gatling</groupId>
-      <artifactId>gatling-http-java</artifactId>
-      <version>3.8.4</version>
-    </dependency>-->
-    <!--    <dependency>-->
-<!--      <groupId>com.typesafe</groupId>-->
-<!--      <artifactId>config</artifactId>-->
-<!--      <version>1.4.2</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.slf4j</groupId>-->
-<!--      <artifactId>slf4j-api</artifactId>-->
-<!--      <version>2.0.6</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.apache.logging.log4j</groupId>-->
-<!--      <artifactId>log4j-slf4j-impl</artifactId>-->
-<!--      <version>2.1</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>com.typesafe.scala-logging</groupId>-->
-<!--      <artifactId>scala-logging_3</artifactId>-->
-<!--      <version>3.9.5</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>com.typesafe.akka</groupId>-->
-<!--      <artifactId>akka-actor_3</artifactId>-->
-<!--      <version>2.8.0-M2</version>-->
-<!--    </dependency>-->
   </dependencies>
   <build>
     <resources>

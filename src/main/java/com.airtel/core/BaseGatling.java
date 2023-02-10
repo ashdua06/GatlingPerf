@@ -3,8 +3,6 @@ package com.airtel.core;
 
 import com.airtel.global.ContentType;
 import com.airtel.global.MethodType;
-import io.gatling.core.action.builder.FeedBuilder;
-import io.gatling.core.feeder.Batch;
 import io.gatling.javaapi.core.FeederBuilder;
 import io.gatling.javaapi.core.PopulationBuilder;
 import io.gatling.javaapi.core.ScenarioBuilder;
