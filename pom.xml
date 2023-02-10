@@ -122,9 +122,6 @@
 <!--    </dependency>-->
   </dependencies>
   <build>
-    <filters>
-      <filter>profiles/${build.profile.id}/config.properties</filter>
-    </filters>
     <resources>
       <resource>
         <filtering>true</filtering>
@@ -175,15 +172,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>PERF</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <build.profile.id>PERF</build.profile.id>
-      </properties>
-    </profile>
-  </profiles>
 </project>
